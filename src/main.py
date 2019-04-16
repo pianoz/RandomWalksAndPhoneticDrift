@@ -21,7 +21,8 @@ def main():
         if crsr == '1':
             lang1 = input("language from: ")
             lang2 = input("language to: ")
-            vector_between_languages(lang1.lower(), lang2.lower())
+            blank = []
+            vector_between_languages(lang1.lower(), lang2.lower(),False, blank)
         if crsr == '2':
             lang = input("what language would you like to find?")
             reader(lang.lower())
