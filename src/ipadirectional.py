@@ -9,7 +9,27 @@ csv_path = os.path.relpath('..\\resources\\IPAConnectivity.csv', cur_path)
 
 
 def rw_handler():
-    return
+    while 1:
+        menu = input("RANDOM WALK MODELER, press 1 to continue, press 2 to return")
+        if menu == 1:
+            steps = input("how many rounds of drift? ")
+            starting_lang = input("starting language: ")
+            rw_temp = input("what random walk model? \n 1 = Gaussian, 2 = Correlated, 3 = Biased, 4 = return, q = quit")
+
+            if rw_temp == 1:
+                print("running", steps, "of a Gaussian Random Walk on ", starting_lang, "\n")
+
+            if rw_temp == 2:
+                print("running", steps, "of a Correlated Random Walk on ", starting_lang, "\n")
+
+            if rw_temp == 3:
+                print("running", steps, "of a Gaussian Random Walk on ", starting_lang, "\n")
+
+            if rw_temp == 4:
+                break
+
+            if rw_temp == 'q':
+                quit()
 
 
 def gaussian_rw():
@@ -24,13 +44,19 @@ def biased_rw():
     return
 
 
-def ipa_consonant(character, direction):
-    if character in NPClicks:
-        return
-    if character in NPVoImp:
-        return
-    if character in PCons:
-        return
+def ipa_consonant(character_addr, rw):
+
+    rand = random.randrange(-1,1)
+
+    # Size of the section it can move within is stored at addr[2], making sure we don't walk off the end of our 'array'
+    if character_addr[1] != character_addr[2] and character_addr[1] != 0:
+        return character_addr + rand
+    if character_addr[1] == character_addr[2]:
+        return character_addr - abs(rand)
+    if character_addr[1] == 0:
+        return character_addr[1] + abs(rand)
+
+
 
 
 def address_cons(var, direction):
@@ -45,7 +71,7 @@ def address_cons(var, direction):
         for key in Consonants_addr:
             if key == var:
                 return key
-            
+
 
 def address_vowel(var, direction):
 
@@ -65,7 +91,7 @@ def address_vowel(var, direction):
                 i += 1
 
 
-def ipa_vowel(character_address):
+def ipa_vowel(character_address, rw):
     # To use this, simply input a vowel address.
     with codecs.open(csv_path, 'rb', encoding="utf-8") as IPA_connectivity_graph:
         csv_reader = csv.reader(IPA_connectivity_graph)
