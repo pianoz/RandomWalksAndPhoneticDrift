@@ -82,7 +82,7 @@ def csvmain():
         find = input("1 = print language data, 2 = compare language vector, q = quit")
         if find == '1':
             lang = input("what language would you like to find?")
-            reader(lang)
+            reader(lang.lower())
         if find == '2':
             lang1 = input("language from: ")
             lang2 = input("language to: ")
