@@ -13,7 +13,6 @@ csv_path = os.path.relpath('..\\resources\\IPAConnectivity.csv', cur_path)
 
 def rw_main():
     while 1:
-
         steps = input("how many rounds of drift? \n\n  ")
         if int(steps) == 0 or int(steps) > 100:
             print("\n number must be higher than zero and less than one hundred")
@@ -32,15 +31,17 @@ def rw_main():
         if rw_temp == '1':
             print("running", steps, "steps of a Gaussian Random Walk on", starting_lang, "\n")
             rw_manager(steps, starting_lang, 1)
+            break
 
         if rw_temp == '2':
             print("running", steps, "steps of a Correlated Random Walk on", starting_lang, "\n")
             rw_manager(steps, starting_lang, 2)
+            break
 
         if rw_temp == '3':
             print("running", steps, "steps of a Gaussian Random Walk on", starting_lang, "\n")
             rw_manager(steps, starting_lang, 3)
-
+            break
 
         if rw_temp == '4':
             break
