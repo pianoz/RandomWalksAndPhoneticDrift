@@ -2,7 +2,7 @@ import os
 import csv
 import codecs
 
-
+# this file is only to create the datasets in data.py I keep it around in case I need to redo something, but there is no other reason for it.
 def locate_languages():
     cur_path = os.path.dirname(__file__)
     csv_path = os.path.relpath('..\\resources\\phoible.csv', cur_path)
