@@ -8,10 +8,11 @@ csv_path = os.path.relpath('..\\resources\\phoible.csv', cur_path)
 
 
 def reader(language):
-    # this will read out all the information for a single language, language name must be exact as it is the key.
+    # this will read out all the information for a single language, language name must be exact as it is the key. think about it like shitty SQL
+    # also, I tried but there really aren't any better keys than direct language name for our dataset.
     if confirm_language(language):
 
-        # each language is stored at a certain line # in the CSV file. I found that number and put it into a dictionary
+        # each language is stored at a certain line # in the CSV file. I found that number and put it into a dictionary/
         # so you don't have to search each time.
         value = lang_data.get(language)
         print(value)
@@ -63,6 +64,7 @@ def vector_reader(lang, address):
 
 
 def vector_between_languages(lang1, lang2):
+    # just a handler for the vector reader to make things more easy to read
     if confirm_language(lang1) and confirm_language(lang2):
         lang1_index = lang_data.get(lang1)
         lang2_index = lang_data.get(lang2)
@@ -87,6 +89,6 @@ def csvmain():
             vector_between_languages(lang1.lower(), lang2.lower())
         if find == 'q':
             break
-        reader(find.lower())
+
 
 csvmain()
