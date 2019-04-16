@@ -5,7 +5,7 @@ import codecs
 from data import vowel_to_index, lang_data
 from data import Consonants_addr
 from csvhandler import confirm_language, phoneme_reader, vector_between_languages
-
+os.system('color')
 
 cur_path = os.path.dirname(__file__)
 csv_path = os.path.relpath('..\\resources\\IPAConnectivity.csv', cur_path)
@@ -90,22 +90,12 @@ def rw_manager(steps, lang, form):
 
     new_alphabet = new_v + new_c
 
-    print("New phonemic aplhabet: \n",new_alphabet, "\n\n")
+    print(lang, "alphabet: ", alphabet)
+
+    print("New phonemic aplhabet: ",new_alphabet, "\n\n")
     print("vector between drift and", lang, "\n")
 
     vector_between_languages(lang, 'blank', True, new_alphabet)
-
-
-def gaussian_rw():
-    return
-
-
-def correlated_rw():
-    return
-
-
-def biased_rw():
-    return
 
 
 def ipa_consonant(character_addr, rw):

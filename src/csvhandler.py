@@ -2,6 +2,9 @@ import os
 import csv
 import codecs
 from data import lang_data
+from termcolor import colored
+
+os.system('color')
 
 
 cwd = os.getcwd()  # Get the current working directory (cwd)
@@ -91,6 +94,7 @@ def phoneme_reader(lang, address):
 
 
 def vector_between_languages(lang1, lang2, trigger, blank):
+    os.system('color')
 
     # just a handler for the vector reader to make things more easy to read
     if confirm_language(lang1):
@@ -107,8 +111,8 @@ def vector_between_languages(lang1, lang2, trigger, blank):
                 phn2 = phoneme_reader(lang2, lang2_index)
 
         # using some python set stuff here
-        print("loss lang1: ", set(phn1)-set(phn2))
-        print("gain lang2: ", set(phn2)-set(phn1))
+        print(colored(("loss from language 1: ", set(phn1)-set(phn2)), 'red'))
+        print(colored(("gain in language 2: ", set(phn2)-set(phn1)), 'blue'))
 
 
 def csvmain():
