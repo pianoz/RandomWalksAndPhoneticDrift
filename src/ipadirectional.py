@@ -57,8 +57,6 @@ def ipa_consonant(character_addr, rw):
         return character_addr[1] + abs(rand)
 
 
-
-
 def address_cons(var, direction):
 
     # send direction True and get consonant -> address. Send False and get address -> consonant
