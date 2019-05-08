@@ -6,7 +6,8 @@ import sys
 sys.path.append(os.getcwd().index('src'))
 
 cur_path = os.path.dirname(__file__)
-csv_path = os.path.relpath('..\\resources\\IPAConnectivity.csv', cur_path)
+csv_path = os.path.relpath('vowelconnectivity.csv', cur_path)
+
 
 def main():
     print(("--------------------------------------------------------------------\n"
@@ -22,7 +23,7 @@ def main():
             lang1 = input("language from: ")
             lang2 = input("language to: ")
             blank = []
-            vector_between_languages(lang1.lower(), lang2.lower(),False, blank)
+            vector_between_languages(lang1.lower(), lang2.lower(), False, blank)
         if crsr == '2':
             lang = input("what language would you like to find?")
             reader(lang.lower())

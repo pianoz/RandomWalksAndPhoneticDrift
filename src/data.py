@@ -3,7 +3,8 @@
 Consonants_addr = {
 
     # 2D array, first value is sound location, second is type
-    # 0-plosive, 1-nasal, 2-trill, 3- tap or flap, 4-fricative, 5-lateral fricative, 6-approximant, 7-lateral approximant, 8-clicks, 9- voiced implosives, 10 - ejectives
+    # 0-plosive, 1-nasal, 2-trill, 3- tap or flap, 4-fricative, 5-lateral fricative, 6-approximant,
+    # 7-lateral approximant, 8-clicks, 9- voiced implosives, 10 - ejectives
 
     'p': [0, 0, 12],
     'b': [1, 0, 12],

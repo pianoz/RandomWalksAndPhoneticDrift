@@ -5,10 +5,12 @@ import codecs
 from data import vowel_to_index, lang_data
 from data import Consonants_addr
 from csvhandler import confirm_language, phoneme_reader, vector_between_languages
-os.system('color')
+
+# from termcolor import color
+# os.system('color')
 
 cur_path = os.path.dirname(__file__)
-csv_path = os.path.relpath('..\\resources\\IPAConnectivity.csv', cur_path)
+csv_path = os.path.relpath('vowelconnectivity.csv', cur_path)
 
 
 def rw_main():
@@ -22,8 +24,8 @@ def rw_main():
         if not confirm_language(starting_lang):
             break
 
-        rw_temp = input("what random walk model? \n\n  1 = Gaussian\n  2 = Correlated\n  "
-                        "3 = Biased\n  4 = return\n  5 = quit \n\n  ")
+        rw_temp = input("Are you sure? \n\n  1 = Yes, run a biased RW\n "
+                        "4 = return\n  5 = quit \n\n  ")
         if rw_temp != '1' and rw_temp != '2' and rw_temp != '3' and rw_temp != '4' and rw_temp != '5':
             print("invalid entry")
             break
@@ -33,15 +35,6 @@ def rw_main():
             rw_manager(steps, starting_lang, 1)
             break
 
-        if rw_temp == '2':
-            print("running", steps, "steps of a Correlated Random Walk on", starting_lang, "\n")
-            rw_manager(steps, starting_lang, 2)
-            break
-
-        if rw_temp == '3':
-            print("running", steps, "steps of a Gaussian Random Walk on", starting_lang, "\n")
-            rw_manager(steps, starting_lang, 3)
-            break
 
         if rw_temp == '4':
             break
@@ -100,7 +93,7 @@ def rw_manager(steps, lang, form):
 
 def ipa_consonant(character_addr, rw):
 
-    rand = random.randrange(-1,1)
+    rand = random.randrange(-1, 1)
 
     # Size of the section it can move within is stored at addr[2], making sure we don't walk off the end of our 'array'
     if 0 < int(character_addr[0]) < int(character_addr[2]):
