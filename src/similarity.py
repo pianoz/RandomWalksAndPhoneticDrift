@@ -2,6 +2,7 @@ from data import Consonants_addr, vowel_to_index
 import codecs
 import os
 import csv
+from statistics import stdev, variance
 # from ipadirectional import address_cons
 
 cur_path = os.path.dirname(__file__)
@@ -109,6 +110,9 @@ def find_similarity(lost, gained):
     # to check similarity, find if it is a vowel or consonant first, then do a for loop
     # for all of the items on the lost phonemes list and return the most similar. The degrees of separation is the
     # sum, the average separation is the average of these distances.
+
+    # 101 is just a placeholder that I know will be higher than any actual possible value. It is erased if it still
+    # remains in the list at the end, which is possible.
     numerical_similarity_vector = [101]*max(len(lost), len(gained))
 
     i = 0
@@ -138,7 +142,13 @@ def find_similarity(lost, gained):
         i += 1
     numerical_similarity_vector = erase_101(numerical_similarity_vector)
 
-    print((sum(numerical_similarity_vector) + diff)/len(larger), "Average separation of phonemes\n")
+    average = round((sum(numerical_similarity_vector) + diff)/len(larger), 4)
+    standard_dev = round(stdev(numerical_similarity_vector, average),4)
+    vari = round(variance(numerical_similarity_vector),4)
+
+    print(average, "Average separation of phonemes")
+    print(standard_dev, "Standard Deviation")
+    print(vari, "Variance")
     print(sum(numerical_similarity_vector) + diff, "Total separation\n")
 
     return

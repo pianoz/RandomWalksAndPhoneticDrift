@@ -4,15 +4,10 @@
     <bookmark url="file://$PROJECT_DIR$/src/data.py" line="36" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b42733a2-8c6a-41f2-8289-82a7590a5936" name="Default" comment="works from command line now. navigate to src folder and run">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/phoible.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/similarity.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/vowelconnectivity.csv" />
+    <list default="true" id="b42733a2-8c6a-41f2-8289-82a7590a5936" name="Default" comment="works from command line now. navigate to src folder and run $ python3 main.py">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/csvhandler.py" afterPath="$PROJECT_DIR$/src/csvhandler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/data.py" afterPath="$PROJECT_DIR$/src/data.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ipadirectional.py" afterPath="$PROJECT_DIR$/src/ipadirectional.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.py" afterPath="$PROJECT_DIR$/src/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/similarity.py" afterPath="$PROJECT_DIR$/src/similarity.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,7 +21,7 @@
       <file leaf-file-name="csvhandler.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/csvhandler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-646">
+            <state relative-caret-position="527">
               <caret line="60" column="22" lean-forward="true" selection-start-line="60" selection-start-column="22" selection-end-line="60" selection-end-column="22" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
@@ -38,8 +33,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" column="32" lean-forward="false" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+            <state relative-caret-position="187">
+              <caret line="11" column="11" lean-forward="true" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
               <folding>
                 <element signature="e#0#55#0" expanded="true" />
               </folding>
@@ -50,7 +45,7 @@
       <file leaf-file-name="ipadirectional.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ipadirectional.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
+            <state relative-caret-position="-2040">
               <caret line="8" column="29" lean-forward="true" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
@@ -62,8 +57,8 @@
       <file leaf-file-name="similarity.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/similarity.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="140" column="96" lean-forward="false" selection-start-line="140" selection-start-column="96" selection-end-line="140" selection-end-column="96" />
+            <state relative-caret-position="323">
+              <caret line="144" column="73" lean-forward="true" selection-start-line="144" selection-start-column="73" selection-end-line="144" selection-end-column="73" />
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
               </folding>
@@ -141,6 +136,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -152,11 +148,11 @@
         <option value="$PROJECT_DIR$/src/treehandler.py" />
         <option value="$PROJECT_DIR$/resources/IPAConnectivity.csv" />
         <option value="$PROJECT_DIR$/src/UI.py" />
-        <option value="$PROJECT_DIR$/src/main.py" />
         <option value="$PROJECT_DIR$/src/__init__.py" />
         <option value="$PROJECT_DIR$/src/ipadirectional.py" />
         <option value="$PROJECT_DIR$/src/csvhandler.py" />
         <option value="$PROJECT_DIR$/src/data.py" />
+        <option value="$PROJECT_DIR$/src/main.py" />
         <option value="$PROJECT_DIR$/src/similarity.py" />
       </list>
     </option>
@@ -298,6 +294,14 @@
       <option name="presentableId" value="Default" />
       <updated>1555350253866</updated>
     </task>
+    <task id="LOCAL-00001" summary="works from command line now. navigate to src folder and run $ python3 main.py">
+      <created>1557336984761</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1557336984761</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -346,20 +350,12 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="works from command line now. navigate to src folder and run $ python3 main.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="works from command line now. navigate to src folder and run $ python3 main.py" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/similarity.py</url>
-          <line>43</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/similarity.py</url>
-          <line>53</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="30" />
     </breakpoint-manager>
     <watches-manager />
@@ -643,7 +639,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ipadirectional.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
+        <state relative-caret-position="-2040">
           <caret line="8" column="29" lean-forward="true" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
@@ -653,8 +649,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="32" lean-forward="false" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+        <state relative-caret-position="187">
+          <caret line="11" column="11" lean-forward="true" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
           <folding>
             <element signature="e#0#55#0" expanded="true" />
           </folding>
@@ -663,7 +659,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/csvhandler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-646">
+        <state relative-caret-position="527">
           <caret line="60" column="22" lean-forward="true" selection-start-line="60" selection-start-column="22" selection-end-line="60" selection-end-column="22" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
@@ -673,8 +669,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/similarity.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="140" column="96" lean-forward="false" selection-start-line="140" selection-start-column="96" selection-end-line="140" selection-end-column="96" />
+        <state relative-caret-position="323">
+          <caret line="144" column="73" lean-forward="true" selection-start-line="144" selection-start-column="73" selection-end-line="144" selection-end-column="73" />
           <folding>
             <element signature="e#0#48#0" expanded="true" />
           </folding>
