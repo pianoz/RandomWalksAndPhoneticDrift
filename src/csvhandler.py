@@ -110,9 +110,12 @@ def vector_between_languages(lang1, lang2, trigger, blank):
             phn2 = blank
 
         if not trigger:
+            if not confirm_language(lang2):
+                return
             if confirm_language(lang2):
                 lang2_index = lang_data.get(lang2)
                 phn2 = phoneme_reader(lang2, lang2_index)
+
 
         # using some python set stuff here
         print("loss from language 1: ", set(phn1) - set(phn2))
