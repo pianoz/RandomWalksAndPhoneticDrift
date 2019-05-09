@@ -19,8 +19,8 @@ def main():
         crsr = input("\n  1 = language difference vector \n"
                      "  2 = check language data, \n"
                      "  3 = random walk test \n"
-                     "  4/q = quit \n "
-                     "  5 = CHECKALL \n \n ")
+                     "  4/q = quit \n"
+                     "  5 = CHECKALL \n \n")
         if crsr == '1':
             lang1 = input("language from: ")
             lang2 = input("language to: ")

@@ -24,24 +24,9 @@ def rw_main():
         if not confirm_language(starting_lang):
             break
 
-        rw_temp = input("Are you sure? \n\n  1 = Yes, run a biased RW\n "
-                        "4 = return\n  5 = quit \n\n  ")
-        if rw_temp != '1' and rw_temp != '2' and rw_temp != '3' and rw_temp != '4' and rw_temp != '5':
-            print("invalid entry")
-            break
-
-        if rw_temp == '1':
-            print("running", steps, "steps of a Gaussian Random Walk on", starting_lang, "\n")
-            rw_manager(steps, starting_lang, 1)
-            break
-
-
-        if rw_temp == '4':
-            break
-
-        if rw_temp == 'q':
-            quit()
-
+        print("running", steps, "steps of a Gaussian Random Walk on", starting_lang, "\n")
+        rw_manager(steps, starting_lang, 1)
+        break
 
 def rw_manager(steps, lang, form):
 
@@ -88,7 +73,7 @@ def rw_manager(steps, lang, form):
     print("New phonemic aplhabet: ",new_alphabet, "\n\n")
     print("vector between drift and", lang, "\n")
 
-    vector_between_languages(lang, 'blank', True, new_alphabet)
+    vector_between_languages(lang, 'blank', True, new_alphabet, False)
 
 
 def ipa_consonant(character_addr, rw):
