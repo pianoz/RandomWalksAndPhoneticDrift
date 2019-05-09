@@ -1,5 +1,5 @@
 from csvhandler import vector_between_languages, reader, confirm_language
-from ipadirectional import rw_main
+from ipadirectional import rw_main, rw_so_many
 from data import testing_languages
 import os
 import sys
@@ -19,8 +19,9 @@ def main():
         crsr = input("\n  1 = language difference vector \n"
                      "  2 = check language data, \n"
                      "  3 = random walk test \n"
-                     "  4/q = quit \n "
-                     "  5 = CHECKALL \n \n ")
+                     "  4/q = quit \n"
+                     "  5 = CHECKALL \n"
+                     "  6 = A lot of random walking \n \n")
         if crsr == '1':
             lang1 = input("language from: ")
             lang2 = input("language to: ")
@@ -37,6 +38,8 @@ def main():
             last_chance = input("Are you sure? This will take a long time to run. Y/N")
             if last_chance == 'Y':
                 big_boy_handler()
+        if crsr == '6':
+            rw_so_many()
 
 
 def big_boy_handler():

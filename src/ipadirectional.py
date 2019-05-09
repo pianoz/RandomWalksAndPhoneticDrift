@@ -42,11 +42,28 @@ def rw_main():
         if rw_temp == 'q':
             quit()
 
+def rw_so_many():
+    all_the_langs = list(lang_data.keys())
+    langs = set()
+    langs_count = int(input("number of languages to walk: "))
+    for i in range(langs_count):
+        langs.add(random.choice(all_the_langs))
+    print("walking the following languages:", langs)
+    max_steps = int(input("max number of steps: "))
+    if max_steps < 1 or max_steps > 100:
+        print("\n number must be higher than zero and less than one hundred")
+    period = int(input("how frequently to report data: "))
+    if period < 1 or period > max_steps:
+        print("\n number must be higher than zero and less than", max_steps)
+    for lang in langs:
+        rw_manager(max_steps, lang, 1, False, period)
+    
 
-def rw_manager(steps, lang, form):
+def rw_manager(steps, lang, form, trigger_big_data = False, period = 0):
 
     # first step is to turn all the phonemes into addresses
     alphabet = phoneme_reader(lang, lang_data[lang])
+    print(lang, "alphabet: ", alphabet)
     addressed_pho_c = []
     addressed_pho_v = []
     for item in alphabet:
@@ -72,6 +89,19 @@ def rw_manager(steps, lang, form):
             temp = ipa_vowel(item, form)
             addressed_pho_v[j] = int(temp)
             j += 1
+        if period > 0 and i % period == 0:
+            # get everything back to phoneme form
+            new_c = []
+            new_v = []
+            for item in addressed_pho_c:
+                new_c.append(address_cons(item, False))
+            for item in addressed_pho_v:
+                new_v.append(address_vowel(item, False))
+
+            new_alphabet = new_v + new_c
+            print(lang, "at step", i, ": ", new_alphabet)
+
+            vector_between_languages(lang, 'blank', True, new_alphabet, False, True, i)
 
     # get everything back to phoneme form
     new_c = []
@@ -83,12 +113,10 @@ def rw_manager(steps, lang, form):
 
     new_alphabet = new_v + new_c
 
-    print(lang, "alphabet: ", alphabet)
-
     print("New phonemic aplhabet: ",new_alphabet, "\n\n")
     print("vector between drift and", lang, "\n")
 
-    vector_between_languages(lang, 'blank', True, new_alphabet)
+    vector_between_languages(lang, 'blank', True, new_alphabet, trigger_big_data, False)
 
 
 def ipa_consonant(character_addr, rw):

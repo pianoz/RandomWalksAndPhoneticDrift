@@ -97,7 +97,7 @@ def phoneme_reader(lang, address):
         return phn_list
 
 
-def vector_between_languages(lang1, lang2, trigger, blank, trigger2):
+def vector_between_languages(lang1, lang2, trigger, blank, trigger2, trigger3=False,step=0):
     # os.system('color')
 
     # just a handler for the vector reader to make things more easy to read
@@ -121,7 +121,7 @@ def vector_between_languages(lang1, lang2, trigger, blank, trigger2):
         print("loss from language 1: ", set(phn1) - set(phn2))
         print("gain in language 2: ", set(phn2)-set(phn1), "\n")
 
-        find_similarity(set(phn1) - set(phn2), set(phn2)-set(phn1), trigger2, lang1, lang2)
+        find_similarity(set(phn1) - set(phn2), set(phn2)-set(phn1), trigger2, lang1, lang2,trigger3,step)
 
         # print(colored(("loss from language 1: ", set(phn1)-set(phn2)), 'red'))
         # print(colored(("gain in language 2: ", set(phn2)-set(phn1)), 'blue'))

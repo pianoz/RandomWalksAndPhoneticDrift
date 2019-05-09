@@ -108,13 +108,18 @@ def erase_101(vector_list):
     return vector_list
 
 
-def printer(lang1, lang2, avg, stddev, vari, _sum):
-    with open("bigdata.csv", "a", encoding='utf-8') as bigfile:
-        string = lang1 + "," + lang2 + "," + str(avg) + "," + str(stddev) + ',' + str(vari) + ',' + str(_sum) + "\n"
-        bigfile.write(string)
+def printer(lang1, lang2, avg, stddev, vari, _sum, trigger2, step=0):
+    if trigger2:
+        with open("walkdata.csv", "a", encoding='utf-8') as bigfile:
+            string = lang1 + "," + str(step) + "," + str(avg) + "," + str(stddev) + ',' + str(vari) + ',' + str(_sum) + "\n"
+            bigfile.write(string)
+    else:
+        with open("bigdata.csv", "a", encoding='utf-8') as bigfile:
+            string = lang1 + "," + lang2 + "," + str(avg) + "," + str(stddev) + ',' + str(vari) + ',' + str(_sum) + "\n"
+            bigfile.write(string)
 
 
-def find_similarity(lost, gained, trigger, lang1, lang2):
+def find_similarity(lost, gained, trigger, lang1, lang2, trigger2=False, step=0):
     # to check similarity, find if it is a vowel or consonant first, then do a for loop
     # for all of the items on the lost phonemes list and return the most similar. The degrees of separation is the
     # sum, the average separation is the average of these distances.
@@ -170,7 +175,7 @@ def find_similarity(lost, gained, trigger, lang1, lang2):
     print(vari, "Variance")
     print(_sum, "Total separation\n")
 
-    if trigger:
-        printer(lang1, lang2, average, standard_dev, vari, _sum)
+    if trigger or trigger2:
+        printer(lang1, lang2, average, standard_dev, vari, _sum, trigger2, step)
 
     return
