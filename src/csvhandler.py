@@ -1,7 +1,7 @@
 import os
 import csv
 import codecs
-from data import lang_data
+from data import lang_data, vowel_to_index, Consonants_addr
 from similarity import find_similarity
 
 # from termcolor import colored
@@ -86,9 +86,9 @@ def phoneme_reader(lang, address):
         # alo_list = []
         for row in csv_reader:
             if i >= int(address):
-                # location of phonemes is 6, allophones are 7
-                phn_list.append(row[6])
-                # alo_list.append(row[6])
+                # location of phonemes is 6. Make sure the phoneme is something we actually have in data
+                if phoneme_scrubber(row[6]):
+                    phn_list.append(row[6])
                 lname = row[3].lower()
             i += 1
             if lname != lang and i > int(address):
@@ -97,7 +97,7 @@ def phoneme_reader(lang, address):
         return phn_list
 
 
-def vector_between_languages(lang1, lang2, trigger, blank):
+def vector_between_languages(lang1, lang2, trigger, blank, trigger2):
     # os.system('color')
 
     # just a handler for the vector reader to make things more easy to read
@@ -121,10 +121,18 @@ def vector_between_languages(lang1, lang2, trigger, blank):
         print("loss from language 1: ", set(phn1) - set(phn2))
         print("gain in language 2: ", set(phn2)-set(phn1), "\n")
 
-        find_similarity(set(phn1) - set(phn2), set(phn2)-set(phn1))
+        find_similarity(set(phn1) - set(phn2), set(phn2)-set(phn1), trigger2, lang1, lang2)
 
         # print(colored(("loss from language 1: ", set(phn1)-set(phn2)), 'red'))
         # print(colored(("gain in language 2: ", set(phn2)-set(phn1)), 'blue'))
+
+
+
+def phoneme_scrubber(phn):
+    if phn in Consonants_addr or phn in vowel_to_index:
+        return True
+    else:
+        return False
 
 
 def csvmain():

@@ -55,17 +55,19 @@ def vowel_recur(vowel_add, target_add, count, explored_nodes):
     for i in checklist:
         if int(i) == target_add:
             return count
-    else:
+    if count < 10:
         for i in checklist:
             if i not in explored_nodes:
                 return vowel_recur(i, target_add, count, explored_nodes)
+    else:
+        return count
 
 
 def cons_sim_handler(cons_1, cons_2):
     temp1 = Consonants_addr[cons_1]
     temp2 = Consonants_addr[cons_2]
     if temp1[1] != temp2[1]:
-        return 10
+        return 20
     else:
         return abs(temp1[0]-temp2[0])
 
@@ -100,13 +102,19 @@ def address_vowel(var, direction):
 def erase_101(vector_list):
     i = 0
     for item in vector_list:
-        if int(item) == 101:
+        if int(item) == 101 or int(item) == 20:
             vector_list[i] = 1
         i += 1
     return vector_list
 
 
-def find_similarity(lost, gained):
+def printer(lang1, lang2, avg, stddev, vari, _sum):
+    with open("bigdata.csv", "a", encoding='utf-8') as bigfile:
+        string = lang1 + "," + lang2 + "," + str(avg) + "," + str(stddev) + ',' + str(vari) + ',' + str(_sum) + "\n"
+        bigfile.write(string)
+
+
+def find_similarity(lost, gained, trigger, lang1, lang2):
     # to check similarity, find if it is a vowel or consonant first, then do a for loop
     # for all of the items on the lost phonemes list and return the most similar. The degrees of separation is the
     # sum, the average separation is the average of these distances.
@@ -143,12 +151,26 @@ def find_similarity(lost, gained):
     numerical_similarity_vector = erase_101(numerical_similarity_vector)
 
     average = round((sum(numerical_similarity_vector) + diff)/len(larger), 4)
-    standard_dev = round(stdev(numerical_similarity_vector, average),4)
-    vari = round(variance(numerical_similarity_vector),4)
+    try:
+        standard_dev = round(stdev(numerical_similarity_vector, average), 4)
+    except AssertionError:
+        print("values are uniform, no standard dev")
+        standard_dev = 'NaN'
+
+    try:
+        vari = round(variance(numerical_similarity_vector), 4)
+    except AssertionError:
+        print("values are uniform, no variance")
+        vari = 'NaN'
+
+    _sum = sum(numerical_similarity_vector) + diff
 
     print(average, "Average separation of phonemes")
     print(standard_dev, "Standard Deviation")
     print(vari, "Variance")
-    print(sum(numerical_similarity_vector) + diff, "Total separation\n")
+    print(_sum, "Total separation\n")
+
+    if trigger:
+        printer(lang1, lang2, average, standard_dev, vari, _sum)
 
     return

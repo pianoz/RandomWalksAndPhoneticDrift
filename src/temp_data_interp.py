@@ -27,4 +27,18 @@ def locate_languages():
         print('"' + str(items) + '": "' + str(dictonario[items]) + '",')
 
 
-locate_languages()
+def test(data1, data2):
+    with open("bigdata.csv", "a") as bigfile:
+        string = data1 + "," + data2 + "," + '12' + "," + '12.2' + "\n"
+        bigfile.write(string)
+
+
+def testhandler():
+
+    i =0
+    while i < 10:
+        data1 = "englsh" + str(i)
+        data2 = "spanish" + str(i)
+        test(data1, data2)
+        i += 1
+
