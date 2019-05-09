@@ -127,7 +127,6 @@ def vector_between_languages(lang1, lang2, trigger, blank, trigger2, trigger3=Fa
         # print(colored(("gain in language 2: ", set(phn2)-set(phn1)), 'blue'))
 
 
-
 def phoneme_scrubber(phn):
     if phn in Consonants_addr or phn in vowel_to_index:
         return True
